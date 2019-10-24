@@ -1,0 +1,19 @@
+.DS_Store
+.ipynb_checkpoints
+.ipython
+.jupyter
+.local
+.bash_history
+.cache
+.config
+__pycache__
+*.zip
+
+paper/frontiers_csl
+paper/markdown_template
+# paper/bibliographyfull.bib
+paper/publish
+paper/latex
+*.log
+paper/paper_*.md
+*.docx

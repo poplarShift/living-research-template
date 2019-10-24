@@ -1,0 +1,27 @@
+# This is a human-maintainable environment yaml file with minimal indications
+# of versions. it is used for setting up the environment by humans
+# and docker2repo.
+# It will use the newest available and compatible software versions,
+# which may not be desirable for 100% replication.
+# For easier reproducibility, I recommend running the environment as a Docker image
+name: living-research
+channels:
+  - defaults
+dependencies:
+  # Needed for this template
+  - phantomjs
+  - selenium
+  - pandoc
+  - pandoc-crossref
+  - pip
+  # - nodejs
+  # For demonstration's sake in nb/analysis.ipynb
+  - numpy
+  - jupyterlab
+  - pandas
+  - holoviews
+  - hvplot
+  - bokeh
+  #
+  - pip:
+    - jupyter-repo2docker
