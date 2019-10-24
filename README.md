@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/poplarShift/living-research-template/master)
+
 # What is "living research"?
 
 Imagine you want to write a scientific article and you want _every_ _single_ _step_, from the data the published journal article, to be:
@@ -9,11 +11,11 @@ Instead of getting stowed away in a printed journal or in a static pdf, you'd th
 
 # In this document
 
-0. Features
-0. Contents of the repository
-0. Usage
-0. License
-0. Wishlist / further work
+1. Features
+1. Contents of the repository
+1. Usage
+1. License
+1. Wishlist / further work
 
 # Features:
 
@@ -28,44 +30,24 @@ Instead of getting stowed away in a printed journal or in a static pdf, you'd th
 - Article/scientific paper output:
 
     - Bibliography support, using `bibtex`. Even share your bibliography using `bibexport`!
-
     - Produce different versions of the same article for different audiences, using preprocessors:
         - Static (e.g. for a traditional print journal), using pandoc `cls` templates
-
         - Interactive (html) versions, using browser-facing plotting libraries such as `Bokeh`
-
     - Can be formatted to any format you'd like, using pandoc
-
     - Track and markup changes for the peer review process from one revision to another, using markdown-diff
-
     - Import figures and cross-reference them in the text, using `pandoc-crossref`
-
     - In principle, one could write such an article inside a Jupyter notebook. In practice, this becomes cumbersome as the complexity of the project grows. You wouldn't want to bother most of your readers with side stories, supporting material, standard data carpentry code, etc. Hence this is one in a separate markdown file.
 
 - Keep your computation, visualization, and interpretation in one place, using Jupyter notebooks
 
     - Whatever programming language you like (Python, Julia, R, ...) as long as [there's a kernel for it](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
-
     - Annotate code directly with figures and explaining material
-
     - Direct output of supplementary material using nbconvert
 
-
 - Everything is versioned, using git
-
     - Build on, modify, and discuss others' work
-
     - Traceable, attributable, and reversible tree of changes
 
-
-# Contents
-
-- `compile.sh`
-
-    asdasd
-
-
-- `nb/`
 
 # Usage
 
@@ -79,12 +61,12 @@ The easiest way is probably to [follow this link](mybinder-link) or click on the
 
 If you would like to not download anything but explore the study on your own terms, use the pre-compiled Docker image (which includes this entire repository, built using `./docker_build_full.sh`):
 
-> `docker run...`
+> `docker run ...`
 
 ## I want to use this as a template for my own research!
 
 For a local copy, you can create one by cloning this repository using:
-> `git clone XXX .`
+> `git clone https://github.com/poplarShift/living-research-template.git .`
 
 ### How do I write my paper in here?
 
@@ -96,19 +78,22 @@ The file `nb/analysis` has a template for an analysis notebook. The script `comp
 
 ### So how do I set up the computing environment?
 
-  1. Run the pre-compiled docker image that contains only the computing environment and link this directory into the home folder of the , provided you have installed (and started) [Docker](https://www.docker.com):
-  > `./run_docker_env.sh`
+  1. Run the pre-compiled docker image that contains only the computing environment and link this directory to the home folder of the container, provided you have installed (and started) [Docker](https://www.docker.com):
+  ```
+  $ ./run_docker.sh
+  ```
+  which gives you access to the entire computing environment with all the dependencies, or
 
-    which gives you access to the entire computing environment with all the dependencies, or
+  2. Build the same docker image yourself:
+  ```
+  $ ./docker_build_env.sh
+  ```
+  and then run it (see above), or
 
-  1. Build the same docker image yourself:
-  > `./docker_build_env.sh`
-
-    and then run it (see above), or
-
-  1. [Create a local conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) on your machine containing all necessary dependencies using
-  > `$ conda env create -f environment.yml`
-
+  3. [Create a local conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) on your machine containing all necessary dependencies using
+  ```
+  $ conda env create -f environment.yml
+  ```
   If every you find yourself hunting down version differences between the docker images and what is installed locally on your system, you may find the script `binder/export_versions.sh` useful. These versions may differ depending on the conda channel and your operating system.
 
 # License
@@ -118,15 +103,10 @@ I've put all of this under GNU-GPL. If you're interested but you'd need another 
 # Wishlist / to do
 
 - Allow specification of env name and other environment variables through a setup makefile
-
 - Use script to extract tagged manuscript versions, then markup the diffs
-
 - Intake to handle data
-
 - Makefile with automatic detection of what's changed
-
 - Automated caching of computation output, either using intake and intermediary files or function caching
-
 - Automated selective inclusion of functions into the repository imported from local/custom libraries
-
-- Continuous integration
+- Continuous integration / automated builds with docker
+- Docker repo for pre-built images
