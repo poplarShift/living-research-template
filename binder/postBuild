@@ -1,12 +1,3 @@
 set -ex
 
-jupyter labextension install @pyviz/jupyterlab_pyviz
-
-if [ -d paper ]; then
-  cd paper
-  if [ ! -f markdown-format-wdiff ]; then
-    wget https://raw.githubusercontent.com/netj/markdown-diff/master/markdown-format-wdiff
-    chmod 755 markdown-format-wdiff
-    cd ..
-  fi
-fi
+npm install -g pandiff

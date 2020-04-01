@@ -9,6 +9,7 @@ channels:
   - defaults
 dependencies:
   # Needed for this template
+  - python=3
   - phantomjs
   - selenium
   - pandoc
