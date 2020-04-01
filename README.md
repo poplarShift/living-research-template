@@ -7,7 +7,9 @@ Imagine you want to write a scientific article and you want _every_ _single_ _st
 2. reusable, and
 3. scalable.
 
-Instead of getting stowed away in a printed journal or in a static pdf, you'd then want your research to be accessible for further modification and critique, either by future you, colleagues, or anyone else, really. This is what I'd call "living research". What's more, you're in luck, because there is a plethora of open-source tools available these days! This repository contains a template for what your workflow could look like.
+Instead of getting stowed away in a printed journal or in a static pdf, you'd then want your research to be accessible for further modification and critique, either by future you, colleagues, or anyone else, really. This is what I'd call "living research". What's more, you're in luck, because there is a plethora of open-source tools available these days! This repository contains a template for what such a workflow could look like.
+
+This template makes use of python-centered tools. However, none of them strictly require that you code in python and the few custom python scripts that I wrote to handle the workflow could even be replaced by something in your favorite language. The barebones of the workflow are conda for package management, git for versioning, and pandoc for handling documents (and in the future hopefully smoother integration with docker or other containerization software).
 
 # In this document
 
@@ -103,10 +105,9 @@ I've put all of this under GNU-GPL. If you're interested but you'd need another 
 # Wishlist / to do
 
 - Allow specification of env name and other environment variables through a setup makefile
-- Use script to extract tagged manuscript versions, then markup the diffs
-- Intake to handle data
+- `intake` to handle remote and local data
 - Makefile with automatic detection of what's changed
-- Automated caching of computation output, either using intake and intermediary files or function caching
-- Automated selective inclusion of functions into the repository imported from local/custom libraries
+- Automated caching of computation output, e.g. using intake/panel+param and intermediary files
+- Automated selective inclusion of source code of custom functions into the repository
 - Continuous integration / automated builds with docker
 - Docker repo for pre-built images
