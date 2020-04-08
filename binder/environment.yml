@@ -3,10 +3,11 @@
 # and docker2repo.
 # It will use the newest available and compatible software versions,
 # which may not be desirable for 100% replication.
-# For easier reproducibility, I recommend running the environment as a Docker image
+# Reproducibility may be easier when running the environment as a Docker image
 name: living-research
 channels:
   - defaults
+  - conda-forge
 dependencies:
   # Needed for this template
   - python=3
@@ -15,14 +16,16 @@ dependencies:
   - pandoc
   - pandoc-crossref
   - pip
-  # - nodejs
   # For demonstration's sake in nb/analysis.ipynb
   - numpy
+  - nodejs
   - jupyterlab
   - pandas
   - holoviews
   - hvplot
   - bokeh
+  - intake
+  - conda-forge::panel
   #
   - pip:
     - jupyter-repo2docker

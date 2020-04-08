@@ -1,3 +1,5 @@
 set -ex
 
+jupyter labextension install @pyviz/jupyterlab_pyviz
+
 npm install -g pandiff
