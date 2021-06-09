@@ -61,7 +61,7 @@ The easiest way is probably to [follow this link](mybinder-link) or click on the
 
 ## Just give me a docker image to run
 
-If you would like to not download anything but explore the study on your own terms, use the pre-compiled Docker image (which includes this entire repository, built using `./docker_build_full.sh`):
+If you would like to not download anything but explore the study on your own terms, use the pre-compiled Docker image (which includes this entire repository, built using `./build_docker.sh full`):
 
 > `docker run ...`
 
@@ -69,6 +69,8 @@ If you would like to not download anything but explore the study on your own ter
 
 For a local copy, you can create one by cloning this repository using:
 > `git clone https://github.com/poplarShift/living-research-template.git .`
+
+You will want to change the environment and docker image names, specified for various purposes in `binder/environment.yml`
 
 ### How do I write my paper in here?
 
@@ -88,8 +90,13 @@ The file `nb/analysis` has a template for an analysis notebook. The script `comp
 
   2. Build the same docker image yourself:
   ```
-  $ ./docker_build_env.sh
+  $ ./docker_build.sh env
   ```
+  for an image with only the software specified in the environment.yml file, or
+  ```
+    $ ./docker_build.sh full
+  ```
+  for an image including the entire repository,
   and then run it (see above), or
 
   3. [Create a local conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) on your machine containing all necessary dependencies using
