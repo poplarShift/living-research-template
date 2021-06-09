@@ -9,11 +9,21 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  # Needed for this template
   - python=3
+  - phantomjs
+  - selenium
   - pandoc
   - pandoc-crossref
   - pip
-  - jupyterlab
-  - matplotlib
+  # For demonstration's sake in nb/analysis.ipynb
   - numpy
+  - nodejs
+  - jupyterlab
+  - pandas
+  - holoviews
+  - hvplot
+  - bokeh
+  - intake
+  - panel
   - jupyter-repo2docker
