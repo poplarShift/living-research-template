@@ -6,16 +6,14 @@
 # Reproducibility may be easier when running the environment as a Docker image
 name: living-research
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - python=3
   - pandoc
   - pandoc-crossref
   - pip
   - jupyterlab
-  #
-  - pip:
-    - jupyter-repo2docker
   - matplotlib
   - numpy
+  - jupyter-repo2docker
