@@ -21,8 +21,8 @@ if [[ $# -eq 0 || $1 == "env" ]]; then
   cd
   rm -rf $tmpdir $tmpdir_envfile
 
-  docker tag $image_name:latest $image_name:$tag
-  docker tag $image_name:latest $image_name:latest-env
+  docker tag $image_name:latest thanksforthefish/$image_name:$tag
+  docker tag $image_name:latest thanksforthefish/$image_name:latest-env
 
 elif [[ $1 == "full" ]]; then
   # This includes the entire repository (data, ...)
@@ -45,8 +45,8 @@ elif [[ $1 == "full" ]]; then
 
   rm -rf $tmpdir
 
-  docker tag $image_name:latest $image_name:$tag
-  docker tag $image_name:latest $image_name:latest-full
+  docker tag $image_name:latest thaksforthefish/$image_name:$tag
+  docker tag $image_name:latest thaksforthefish/$image_name:latest-full
 
 else
   echo "Usage: One positional argument out of {'env' (default) or 'full'}. Second argument 'push' is optional"
