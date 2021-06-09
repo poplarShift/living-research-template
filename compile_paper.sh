@@ -18,11 +18,11 @@ fi
 
 echo Using bibfile: $bib
 
-# --- compile Frontiers draft
+# --- compile  draft
 # -docx
 pandoc --bibliography $bib --filter pandoc-crossref --filter pandoc-citeproc --csl $cslfile --reference-doc reference.docx --mathjax -o ${file}.docx ${file}_static.md
 
-# now that Frontiers draft is done, move figures up into text
+# now that draft is done, move figures up into text
 python move_figures_into_text.py ${file}_static.md
 # --- static paper
 # -html
