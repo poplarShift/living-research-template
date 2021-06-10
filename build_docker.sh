@@ -17,7 +17,7 @@ if [[ $# -eq 0 || $1 == "env" ]]; then
   cp $tmpdir/binder/* $tmpdir_envfile/
 
   cd $tmpdir_envfile
-  repo2docker --no-run --image-name=$image_name --user-name=$USER .
+  repo2docker --no-run --image-name=$image_name --user-name=$image_name .
   cd
   rm -rf $tmpdir $tmpdir_envfile
 
