@@ -11,8 +11,6 @@ Instead of getting stowed away in a printed journal or in a static pdf, you'd th
 
 This template makes use of python-centered tools. However, none of them strictly require that you code in python and the few custom python scripts that I wrote to handle the workflow could even be replaced by something in your favorite language. The barebones of the workflow are conda for package management, git for versioning, and pandoc for handling documents.
 
-**Also note the branch "interactive" which contains a version of the paper with interactive figures.**
-
 # In this document
 
 1. Features
