@@ -20,13 +20,13 @@ echo Using bibfile: $bib
 
 # --- compile  draft
 # -docx
-pandoc --bibliography $bib --filter pandoc-crossref --filter pandoc-citeproc --csl $cslfile --reference-doc reference.docx --mathjax -o ${file}.docx ${file}.md
+pandoc --bibliography $bib --filter pandoc-crossref --citeproc --csl $cslfile --reference-doc reference.docx --mathjax -o ${file}.docx ${file}.md
 
 # now that draft is done, move figures up into text
 python move_figures_into_text.py ${file}.md
 # --- static paper
 # -html
-pandoc --bibliography $bib --filter pandoc-crossref --filter pandoc-citeproc --csl $cslfile --self-contained --resource-path=.:../nb_fig/:../fig --mathjax -o ${file}.html ${file}.md
+pandoc --bibliography $bib --filter pandoc-crossref --citeproc --csl $cslfile --self-contained --resource-path=.:../nb_fig/:../fig --mathjax -o ${file}.html ${file}.md
 
 # make version with tracked changes
 ./diff.sh

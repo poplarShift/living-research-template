@@ -18,7 +18,7 @@ new=${file}.md
 
 tracked=${file}_trackchanges
 
-pandiff $old $new -o $tracked.html --bibliography $bib --filter pandoc-crossref  --filter pandoc-citeproc #--reference-doc $refdoc --csl $cslfile --mathjax
+pandiff $old $new -o $tracked.html --bibliography $bib --filter pandoc-crossref  --citeproc #--reference-doc $refdoc --csl $cslfile --mathjax
 # these additional options need pandiff install from https://github.com/poplarShift/pandiff/tree/options
 
 # append stylesheet
