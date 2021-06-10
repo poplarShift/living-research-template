@@ -5,7 +5,7 @@ image_name='living-research'
 # that are tracked as part of the repository
 tmpdir=_tmp_repo2docker
 git clone . $tmpdir
-gittag=`git describe`
+gittag=`git branch --show-current`-`git describe`
 
 if [[ $# -eq 0 || $1 == "env" ]]; then
   # This creates a Docker image based only on the environment instructions
