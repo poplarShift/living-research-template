@@ -4,7 +4,7 @@
 # It will use the newest available and compatible software versions,
 # which may not be desirable for 100% replication.
 # Reproducibility may be easier when running the environment as a Docker image
-name: living-research
+name: living-research-interactive
 channels:
   - conda-forge
   - defaults
