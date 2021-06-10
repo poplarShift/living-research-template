@@ -45,8 +45,8 @@ elif [[ $1 == "full" ]]; then
 
   rm -rf $tmpdir
 
-  docker tag $image_name:latest thaksforthefish/$image_name:$tag
-  docker tag $image_name:latest thaksforthefish/$image_name:latest-full
+  docker tag $image_name:latest thanksforthefish/$image_name:$tag
+  docker tag $image_name:latest thanksforthefish/$image_name:latest-full
 
 else
   echo "Usage: One positional argument out of {'env' (default) or 'full'}. Second argument 'push' is optional"
