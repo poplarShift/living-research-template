@@ -10,7 +10,7 @@ Lorem ipsum dolor sit amet (@Fig:myfig), consectetur adipiscing elit, sed do eiu
 
 This section was added in a later version to show integration of pandiff into the work flow.
 
-![This is a figure.](../nb_fig/figure.{~~png~>html~~}){#fig:myfig}
+![This is a figure.](../nb_fig/figure.png){#fig:myfig}
 
 Lorem|ipsum|dolor
 ---|---|---
