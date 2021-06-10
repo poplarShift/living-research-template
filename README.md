@@ -9,7 +9,7 @@ Imagine you want to write a scientific article and you want _every_ _single_ _st
 
 Instead of getting stowed away in a printed journal or in a static pdf, you'd then want your research to be accessible for further modification and critique, either by future you, colleagues, or anyone else, really. This is what I'd call "living research". What's more, you're in luck, because there is a plethora of open-source tools available these days! This repository contains a template for what such a workflow could look like.
 
-This template makes use of python-centered tools. However, none of them strictly require that you code in python and the few custom python scripts that I wrote to handle the workflow could even be replaced by something in your favorite language. The barebones of the workflow are conda for package management, git for versioning, and pandoc for handling documents (and in the future hopefully smoother integration with docker or other containerization software).
+This template makes use of python-centered tools. However, none of them strictly require that you code in python and the few custom python scripts that I wrote to handle the workflow could even be replaced by something in your favorite language. The barebones of the workflow are conda for package management, git for versioning, and pandoc for handling documents.
 
 # In this document
 
@@ -82,13 +82,20 @@ The file `nb/analysis` has a template for an analysis notebook. The script `comp
 
 ### So how do I set up the computing environment?
 
-  1. Run the pre-compiled docker image that contains only the computing environment and link this directory to the home folder of the container, provided you have installed (and started) [Docker](https://www.docker.com):
-  ```
-  $ ./run_docker.sh
-  ```
-  which gives you access to the entire computing environment with all the dependencies, or
+Pick one of the following:
 
-  2. Build the same docker image yourself:
+#### Using conda
+
+[Create a local conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) on your machine containing all necessary dependencies using
+```
+$ conda env create -f environment.yml
+```
+If every you find yourself hunting down version differences between the docker images and what is installed locally on your system, you may find the script `binder/export_versions.sh` useful. These versions may differ depending on the conda channel and your operating system.
+
+#### Using [Docker](https://www.docker.com)
+##### Get the image:
+
+1. Build the same docker image yourself:
   ```
   $ ./docker_build.sh env
   ```
@@ -97,13 +104,22 @@ The file `nb/analysis` has a template for an analysis notebook. The script `comp
     $ ./docker_build.sh full
   ```
   for an image including the entire repository,
-  and then run it (see above), or
+  and then run it (see above), OR
 
-  3. [Create a local conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) on your machine containing all necessary dependencies using
-  ```
-  $ conda env create -f environment.yml
-  ```
-  If every you find yourself hunting down version differences between the docker images and what is installed locally on your system, you may find the script `binder/export_versions.sh` useful. These versions may differ depending on the conda channel and your operating system.
+2. Download a pre-compiled one from https://hub.docker.com/r/thanksforthefish/living-research
+
+##### Run the image
+
+Run the pre-compiled docker image provided you have installed (and started) docker.
+
+1. For an image that contains only the computing environment (called `*-env`), run the image and link the current directory to the home folder of the container,
+```
+$ ./run_docker.sh env [image name, optional]
+```
+Or, to get a snapshot of the entire repository, use one of the images called `*-full`:
+```
+$ ./run_docker.sh full [image name, optional]
+```
 
 # License
 
@@ -117,4 +133,3 @@ I've put all of this under GNU-GPL. If you're interested but you'd need another 
 - Automated caching of computation output, e.g. using intake/panel+param and intermediary files
 - Automated selective inclusion of source code of custom functions into the repository
 - Continuous integration / automated builds with docker
-- Docker repo for pre-built images
